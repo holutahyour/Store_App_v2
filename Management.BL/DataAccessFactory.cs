@@ -12,5 +12,10 @@ namespace Management.BL
         {
             return new CustomerActions();
         }
+
+        public static IStoreActions GetStoreActions()
+        {
+            return new StoreActions();
+        }
     }
 }

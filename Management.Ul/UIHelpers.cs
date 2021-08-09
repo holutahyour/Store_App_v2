@@ -22,5 +22,17 @@ namespace Management.Ul
                 DisplayTable.PrintLine();
             }
         }
+        public static void DisplayStoreTable(Queue<Store> stores)
+        {
+            DisplayTable.PrintLine();
+            DisplayTable.PrintRow("Name", "Store Number","Type");
+            DisplayTable.PrintLine();
+
+            foreach (var store in stores)
+            {
+                DisplayTable.PrintRow(store.Name, store.StoreNumber, store.Type);
+                DisplayTable.PrintLine();
+            }
+        }
     }
 }

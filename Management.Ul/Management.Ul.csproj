@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StoreUI.cs" />
     <Compile Include="CustomerUI.cs" />
     <Compile Include="Dashboard.cs" />
     <Compile Include="Program.cs" />

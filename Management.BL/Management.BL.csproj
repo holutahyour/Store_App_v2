@@ -43,10 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actions Interfaces\ICustomerActions.cs" />
+    <Compile Include="Actions\StoreActions.cs" />
     <Compile Include="Actions\CustomerActions.cs" />
+    <Compile Include="Data\StoreData.cs" />
     <Compile Include="Data\CustomerData.cs" />
     <Compile Include="DataAccessFactory.cs" />
-    <Compile Include="Actions Interfaces\ICustomerActions.cs" />
+    <Compile Include="Actions Interfaces\IStoreActions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

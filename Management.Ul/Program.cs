@@ -14,7 +14,8 @@ namespace Management.Ul
             try
             {
                 var customerAction = DataAccessFactory.GetCustomerActions();
-                Dashboard.DisplayDashBoard(customerAction);
+                var storeAction = DataAccessFactory.GetStoreActions();
+                Dashboard.DisplayDashBoard(customerAction, storeAction);
             }
             catch (Exception)
             {

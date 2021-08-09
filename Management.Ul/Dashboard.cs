@@ -13,17 +13,24 @@ namespace Management.Ul
     {
         public Customer user;
 
-        public static void DisplayDashBoard(ICustomerActions customerActions)
+        public static void DisplayDashBoard(ICustomerActions customerActions,IStoreActions storeActions)
         {
             bool shouldRun = true;
+            Customer user = new Customer();
+
             while (shouldRun)
             {
-                Customer user = new Customer();
                 Console.WriteLine("Welcome to Store App");
                 Console.WriteLine("Select any of the following options: ");
                 Console.WriteLine("1 to Register new customer");
                 Console.WriteLine("2 to Login to your account");
                 Console.WriteLine("3 to Show list of all customers");
+                if (user.FirstName != null)
+                {
+                    Console.WriteLine("4 to Add a New Store");
+                    Console.WriteLine("5 to Show list of My Stores");
+
+                }
 
                 var consoleInput = Validations.IsValidInput(Console.ReadLine());
                 if (consoleInput == -1)
@@ -50,7 +57,8 @@ namespace Management.Ul
                         case 2:
                             try
                             {
-                                CustomerUI.CustomerLogin(customerActions,user);
+
+                                user = CustomerUI.CustomerLogin(customerActions,user);
                             }
                             catch (FormatException ex)
                             {
@@ -64,6 +72,32 @@ namespace Management.Ul
                             try
                             {
                                 CustomerUI.DisplayAllCustomer(customerActions);
+                            }
+                            catch (FormatException ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                                Console.ReadKey();
+                                Console.Clear();
+                                throw;
+                            }
+                            break;
+                        case 4:
+                            try
+                            {
+                                StoreUI.StoreRegistration(storeActions,user);
+                            }
+                            catch (FormatException ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                                Console.ReadKey();
+                                Console.Clear();
+                                throw;
+                            }
+                            break;
+                        case 5:
+                            try
+                            {
+                                StoreUI.DisplayAllStore(storeActions,user.Email);
                             }
                             catch (FormatException ex)
                             {
